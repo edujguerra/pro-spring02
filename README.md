@@ -6,7 +6,7 @@ Desafio resolvido utilizando Java Spring com banco de dados Postgres
 
 Para rodar o sistema, após clonar o repositório:
 
-- Aterar o arquivo application.properties (nome do banco<postgres>, usuario<postgres>, senha<Admin>
+- Alterar o arquivo application.properties (nome do banco<postgres>, usuario<postgres>, senha<Admin>
 ** spring.thymeleaf.mode=html
 ** spring.thymeleaf.cache=false
 ** spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
