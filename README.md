@@ -15,5 +15,5 @@ spring.datasource.password=Admin
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 
-
+- O arquivo pom.xml contém as referencias, e deve ser importado também. 
 
