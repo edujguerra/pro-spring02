@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width" />
+		<title>Lista de Conteiners</title>
+		<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"	rel="stylesheet"/>
+		<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+	</head>
+		
+	<body>
+		<div class="panel panel-default" style="margin: 10px">
+			<div class="panel-heading">
+				<h1 class="panel-title">Lista de contêiners</h1>
+			</div>
+			<div class="panel-body">
+				<form class="form-inline" 
+						method="POST" 
+						th:object="${conteiner}" 						
+						style="margin: 20px 0">
+					<div class="form-group">
+						<input type="hidden" th:field="*{id}">
+						<input type="text" class="form-control" placeholder="Cliente" th:field="*{desCliente}" th:required="required"/>
+						<input type="text" class="form-control" placeholder="Núm. contêiner" th:field="*{desNumero}" th:required="required"/>
+						<select th:field="*{desTipo}">
+						 	<option th:value="'20'" th:text="20"></option>
+						 	<option th:value="'40'" th:text="40"></option>
+						</select>	  
+						<select th:field="*{desStatus}">
+						 	<option th:value="'0'" th:text="Cheio"></option>
+						 	<option th:value="'1'" th:text="Vazio"></option>
+						</select>	  						
+						<select th:field="*{desCategoria}">
+						 	<option th:value="'0'" th:text="Importação"></option>
+						 	<option th:value="'1'" th:text="Exportação"></option>
+						</select>	  												
+
+						<button type="submit" class="btn btn-primary">Editar</button>
+						<button class="btn btn-success" onclick="window.location.href='/conteiners'">Voltar</button>
+					</div>
+				</form>							
+			</div>
+		</div>
+		<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	</body>
+</html>

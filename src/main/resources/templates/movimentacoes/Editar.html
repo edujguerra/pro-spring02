@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width" />
+		<title>Lista de Movimentações</title>
+		<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"	rel="stylesheet"/>
+		<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+	</head>
+		
+	<body>
+		<div class="panel panel-default" style="margin: 10px">
+			<div class="panel-heading">
+				<h1 class="panel-title">Lista de movimentações</h1>
+			</div>
+								
+			<div class="panel-body">
+				<form class="form-inline" 
+						method="POST" 
+						th:object="${movimentacao}" 
+						style="margin: 20px 0">
+					<div class="form-group">
+						<select th:field="*{idConteiner}">
+							<option th:each="conteiner : ${conteiners}" th:value="${conteiner.desNumero}" th:text="${conteiner.desNumero}"></option>
+						</select>					
+						<select th:field="*{desTipoMov}">
+						 	<option th:value="'0'" th:text="Embarque"></option>
+						 	<option th:value="'1'" th:text="Descarga"></option>
+						 	<option th:value="'2'" th:text="Gatein"></option>
+						 	<option th:value="'3'" th:text="Gateout"></option>
+						 	<option th:value="'4'" th:text="Reposicionamento"></option>
+						 	<option th:value="'5'" th:text="Pesagem"></option>
+						 	<option th:value="'6'" th:text="Scanner"></option>
+						 </select>
+						 <input type="datetime-local" class="form-control" th:field="*{dtaInicio}" th:required="required"/>					
+						 <input type="datetime-local" class="form-control" th:field="*{dtaFinal}" th:required="required"/>
+						 
+						 <button type="submit" class="btn btn-primary">Alterar</button>
+						 <button class="btn btn-success" onclick="window.location.href='/movimentacoes'">Voltar</button>
+					</div>
+				</form>		
+			</div>
+		</div>
+		<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	</body>
+</html>
